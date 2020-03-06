@@ -1,0 +1,38 @@
+createdAt: "2018-10-05T17:52:21.340Z"
+updatedAt: "2018-10-05T18:23:12.756Z"
+type: "MARKDOWN_NOTE"
+folder: "b7b5328b056f052f5ef0"
+title: "2.- Summary Statistics"
+content: '''
+  # 2.- Summary Statistics
+  * We can use the following functions:
+  
+  ```SQL 
+  SELECT MIN("column") FROM "table";
+  SELECT MAX("column") FROM "table";
+  SELECT COUNT("column") FROM "table";
+  SELECT AVG("column") FROM "table";
+  SELECT SUM("column") FROM "table";
+  SELECT TOTAL("column") FROM "table";
+  ```
+  * `AS` operator, to change names of columns and tables:
+  
+  ```SQL
+  SELECT COUNT(*) AS "new_column_name" FROM "table" AS "new_table_name";
+  ```
+  * `DISTINCT` statement, to select unique values:
+  
+  ```SQL
+  SELECT DISTINCT "column" FROM "table";
+  ```
+  
+  * `*`, `+`, `-`, `/` operators, to make standard arithmetic operations:
+  
+  ```SQL
+  SELECT "column1" - "column2" FROM "table" LIMIT 10;
+  ```
+  * Use 1.0 to convert to a float without casting.
+'''
+tags: []
+isStarred: false
+isTrashed: false

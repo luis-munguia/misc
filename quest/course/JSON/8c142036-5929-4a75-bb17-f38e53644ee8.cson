@@ -1,0 +1,67 @@
+createdAt: "2018-10-05T23:03:26.626Z"
+updatedAt: "2018-10-05T23:52:54.069Z"
+type: "MARKDOWN_NOTE"
+folder: "adacd8e7c228223c6f06"
+title: "1.- Joining Data in SQL"
+content: '''
+  # 1.- Joining Data in SQL
+  Databases usually have data in more than one table, and the way to combine mutiple tables within a query is by using `JOIN`:
+  ![Schema](https://s3.amazonaws.com/dq-content/179/schema.svg)
+  The picture above is of the **schema diagram** which shows the two tables in a database, the columns within them and how the two are linked.
+  * `INNER JOIN`:
+  ```SQL
+  SELECT * FROM facts
+  INNER JOIN cities ON cities.facts_id = facts.id
+  LIMIT 10;
+  ```
+  ![Tables1](https://s3.amazonaws.com/dq-content/179/inner_join.svg)
+  ![Venn1](https://s3.amazonaws.com/dq-content/179/venn_inner.svg)
+  * **Aliases**:
+  ```SQL
+  -- Use AS before name to change.
+  SELECT * FROM facts AS f
+  INNER JOIN cities AS c ON c.facts_id = f.id;
+  ```
+  * `LEFT JOIN`:
+  ```SQL
+  SELECT * FROM facts
+  LEFT JOIN cities on cities.facts_id = facts.id;
+  ```
+  ![Tables2](https://s3.amazonaws.com/dq-content/179/left_join.svg)
+  ![Venn2](https://s3.amazonaws.com/dq-content/179/venn_left.svg)
+  * To select rows where a column is null:
+  ``` SQL
+  WHERE column_name IS NULL
+  WHERE column_name IS NOT NULL
+  ```
+  * The following `JOIN` statement are not suppy SQLite, but other programs do:
+  
+  ```SQL
+  SELECT f.name country, c.name city
+  FROM cities AS C
+  RIGHT JOIN facts AS f ON f.id = c.facts_id
+  LIMIT 5;
+  ```
+  ![Venn3](https://s3.amazonaws.com/dq-content/179/venn_right.svg)
+  
+  ```SQL
+  SELECT f.name country, c.name city
+  FROM cities AS c
+  FULL OUTER JOIN facts AS f ON f.id = c.facts_id
+  LIMIT 5;
+  ```
+  ![Venn4](https://s3.amazonaws.com/dq-content/179/join_venn_diagram.svg)
+  * Using numbers instead of column names:
+  
+  ```SQL
+  SELECT name, migration_rate FROM facts
+  ORDER BY 2;
+  ```
+  
+  * Using `JOIN` with subquery:
+  
+  ![SQL](https://s3.amazonaws.com/dq-content/179/explain_subquery.svg)
+'''
+tags: []
+isStarred: false
+isTrashed: false

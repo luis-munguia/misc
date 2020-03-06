@@ -1,0 +1,125 @@
+createdAt: "2018-10-05T23:52:15.507Z"
+updatedAt: "2018-10-06T00:19:39.771Z"
+type: "MARKDOWN_NOTE"
+folder: "adacd8e7c228223c6f06"
+title: "2.- Intermediate Joins in SQL"
+content: '''
+  # 2.- Intermediate Joins in SQL
+  * Introduction to multiple joins:
+  
+  ```SQL
+  SELECT [column_names] FROM [table_name_one]
+  [join_type] JOIN [table_name_two] ON [join_constraint]
+  [join_type] JOIN [table_name_three] ON [join_constraint];
+  ```
+  
+  ![Schema](https://s3.amazonaws.com/dq-content/189/schema_il_t_mt.svg)
+  
+  ```SQL
+  SELECT * FROM invoice_line il
+  INNER JOIN track t ON t.track_id = il.track_id
+  INNER JOIN media_type mt ON mt.media_type_id = t.media_type_id
+  WHERE invoice_id = 3;
+  ```
+  
+  * More `JOIN`:
+  
+  ![Schema2](https://s3.amazonaws.com/dq-content/189/schema_t_al_ar.svg)
+  
+  ```SQL
+  SELECT
+      il.track_id,
+      t.name track_name,
+      mt.name track_type,
+      il.unit_price,
+      il.quantity
+  FROM invoice_line il
+  INNER JOIN track t ON t.track_id = il.track_id
+  INNER JOIN media_type mt ON mt.media_type_id = t.media_type_id
+  WHERE il.invoice_id = 4;
+  ```
+  
+  g `GROUP BY`:
+  
+  ```SQL
+  SELECT
+      ta.artist_name artist,
+      COUNT(*) tracks_purchased
+  FROM invoice_line il
+  INNER JOIN (
+              SELECT
+                  t.track_id,
+                  ar.name artist_name
+              FROM track t
+              INNER JOIN album al ON al.album_id = t.album_id
+              INNER JOIN artist ar ON ar.artist_id = al.artist_id
+             ) ta
+             ON ta.track_id = il.track_id
+  GROUP BY 1
+  ORDER BY 2 DESC LIMIT 10;
+  ```
+  * **Recursive join** is done joining a table to itself by using different aliases:
+  
+  ```SQL
+  SELECT
+      e1.employee_id,
+      e2.employee_id supervisor_id
+  FROM employee e1
+  INNER JOIN employee e2 on e1.reports_to = e2.employee_id
+  LIMIT 4;
+  ```
+  
+  * **Concatenate operator** `| |` this is used to comine columns into a single column.
+  
+  ```SQL
+  >>> SELECT ("this" || "is" || "my" || "string");
+  
+      thisismystring
+  ```
+  
+  ```SQL
+  SELECT
+      e1.first_name || " " || e1.last_name AS employee_name,
+      e1.title AS employee_title,
+      e2.first_name || " " || e2.last_name AS supervisor_name,
+      e2.title AS supervisor_title
+  FROM employee e1
+  LEFT JOIN employee e2 on e1.reports_to = e2.employee_id
+  ORDER BY 1;
+  ```
+  
+  * `LIKE` operator, use with `WHERE` to find approximations:
+  
+  ```SQL
+  WHERE [column_name] LIKE "[pattern]"
+  ```
+  * `%Jen` - will match `Jen` at the end of a string, eg `Sarah-Jen`
+  * `Jen%` - will match `Jen` at the start of a string, eg `Jenny`
+  * `%Jen%` - will match `Jen` anywhere within the string, eg `Kris Jenner`
+  
+  * `CASE` statement, add categorization to your query like a series of if/then options for a new column:
+  
+  ```SQL
+  CASE
+      WHEN [comparison_1] THEN [value_1]
+      WHEN [comparison_2] THEN [value_2]
+      ELSE [value_3]
+      END
+      AS [new_column_name]
+  ```
+  
+  ```SQL
+  SELECT
+      media_type_id,
+      name,
+      CASE
+          WHEN name LIKE '%Protected%' THEN 1
+          ELSE 0
+          END
+          AS protected
+  FROM media_type;
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

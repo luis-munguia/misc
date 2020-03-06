@@ -1,0 +1,22 @@
+createdAt: "2018-10-05T22:50:22.820Z"
+updatedAt: "2018-10-05T22:59:12.300Z"
+type: "MARKDOWN_NOTE"
+folder: "b7b5328b056f052f5ef0"
+title: "6.- Guided Project"
+content: '''
+  # 6.- Guided Project
+  * Using pandas to run SQL queries and display the results neatly as a Dataframe object.
+  
+  ```python
+  import sqlite3
+  import pandas as pd
+  conn = sqlite3.connect("factbook.db")
+  #This query will return all the table names from the database.
+  q = "SELECT * FROM sqlite_master WHERE type='table';"
+  # 
+  pd.read_sql_query(q,conn)
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

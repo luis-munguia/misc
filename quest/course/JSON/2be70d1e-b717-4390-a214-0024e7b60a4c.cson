@@ -1,0 +1,55 @@
+createdAt: "2018-10-05T21:45:44.561Z"
+updatedAt: "2018-10-05T22:48:51.099Z"
+type: "MARKDOWN_NOTE"
+folder: "b7b5328b056f052f5ef0"
+title: "5.- Querying SQLite from Python"
+content: '''
+  # 5.- Querying SQLite from Python
+  
+  It's better to use SQLite with files larger than 8 gigabytes, as Pandas will load the entire data set into memory.
+  ***
+  * Getting started with SQLite:
+  ```python
+  import sqlite3
+  # Connect function returns a Connection instance.
+  conn = sqlite3.connect("jobs.db")
+  ```
+  * SQL query need to be expressed as a *string.* and we need to use a `Cursor class`:
+  
+  ```python
+  # Connection instance method to return a Cursor instance.
+  cursor = conn.cursor()
+  # SQL Query as a string.
+  query = "SELECT column FROM table;"
+  # Execute the query, convert the results to tuples, and store as a local variable.
+  cursor.execute(query)
+  # Fetch the full results set as a list of tuples.
+  results = cursor.fetchall()
+  # Display the first three results.
+  print(results[0:3])
+  ```
+  * SQLite allows skipping the creation of the `Cursor class` by using the `execute method` within the `Connection object`:
+  
+  ```python
+  conn = sqlite3.connect("jobs.db")
+  query = "SELECT * FROM table;"
+  conn.execute(query).fetchall()
+  ```
+  * We can limit the number of results we want to retrieve at any given time:
+  ```python
+  # Returns a single result, and then increment its internal counter by 1.
+  first_result = cursor.fetchone()
+  # Returns a single result, this time it's the second tuple, and has increased its internal counter by 1.
+  second_result = cursor.fetchone()
+  # Returns a "n" number of results, and increases its internal counter by "n".
+  next_five_results = cursor.fechmany(5)
+  ```
+  * SQLite restricts acces to the database file when connected to the database, so it's necesary to close the connection to allow other processes to access the database:
+  
+  ```python
+  conn.close()
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,36 @@
+createdAt: "2018-10-06T00:52:03.871Z"
+updatedAt: "2018-10-06T00:54:09.401Z"
+type: "MARKDOWN_NOTE"
+folder: "adacd8e7c228223c6f06"
+title: "4.- Table Relations and Normalization"
+content: '''
+  # 4.- Table Relations and Normalization
+  
+  * Introduction to SQLite shell:
+  
+  ```bash
+  /home/dq$ sqlite3 chinook.db
+  ```
+  
+  ```bash
+  /home/dq$ sqlite3 chinook.db                  
+  SQLite version 3.21.0 2017-10-24 18:55:49            
+  Enter ".help" for usage hints.                       
+  sqlite>
+  ```
+  
+  ```bash
+  sqlite> SELECT
+     ...>   track_id,
+     ...>   name,
+     ...>   album_id
+     ...> FROM track
+     ...> WHERE album_id = 3;
+  3|Fast As a Shark|3
+  4|Restless and Wild|3
+  5|Princess of the Dawn|3
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

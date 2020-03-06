@@ -1,0 +1,12 @@
+This is really strange project.
+I was able to do steps 1 to 3.
+There are more Males in Juvenile Justice Facility than Females.
+The gender ratio for males and females students is almost the same in Magnet Schools.
+I prefer working with Jupyter.
+
+I felt great when I was able to complete step 4. It seems that resting did it's job.
+
+According to the analysis, it seems that the race that enrolls more in school are Hispanics.
+
+All the other races enroll less in comparison to the demographic data.
+Only the females of Hawaiian or Pacific Islander and Two or more races have higher enrollment than their males counterparts.

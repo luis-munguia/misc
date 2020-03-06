@@ -1,0 +1,35 @@
+createdAt: "2018-10-05T17:11:20.942Z"
+updatedAt: "2018-10-05T18:56:59.177Z"
+type: "MARKDOWN_NOTE"
+folder: "b7b5328b056f052f5ef0"
+title: "1.- Introduction to SQL: Takeaways"
+content: '''
+  # 1.- Introduction to SQL: Takeaways 
+  
+  Pandas is great to use with datasets that fit in memory and are static.
+  ***
+  ![Pandas](https://s3.amazonaws.com/dq-content/252/pandas_workflow.svg)
+  ***
+  But there are times when this is not possible. In these cases we need to use a database management system (**DBMS**).
+  ***
+  ![SQL](https://s3.amazonaws.com/dq-content/252/database_workflow.svg)
+  ***
+  * Getting Started with SQL
+  ``` SQL
+  SELECT "column or columns" FROM "table"
+  
+  WHERE "condition1" OR "condition2" AND "condition3" ORDER BY "column" DESC LIMIT "number";
+  ```
+  * `<`, `<=`, `>`, `>=`, `=`, `!= ` are the comparison operators in SQL.
+  ***
+  ![Table](https://s3.amazonaws.com/dq-content/252/sql_table.svg)
+  ***
+  ![Rows](https://s3.amazonaws.com/dq-content/252/select_breakdown_2.svg)
+  ***
+  ![Rows2](https://s3.amazonaws.com/dq-content/252/where_breakdown_1.svg)
+  ***
+  ![SQL2](https://s3.amazonaws.com/dq-content/252/sql_components.svg)
+'''
+tags: []
+isStarred: false
+isTrashed: false

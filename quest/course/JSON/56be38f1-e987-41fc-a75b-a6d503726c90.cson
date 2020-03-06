@@ -1,0 +1,48 @@
+createdAt: "2018-10-05T18:23:31.558Z"
+updatedAt: "2018-10-05T19:11:52.401Z"
+type: "MARKDOWN_NOTE"
+folder: "b7b5328b056f052f5ef0"
+title: "3.- Group Summary Statistics"
+content: '''
+  # 3.- Group Summary Statistics
+  * `GROUP BY` statement, to compute summary statistics by "group".
+  
+  ```SQL
+  SELECT "column1", SUM("column2")
+  FROM "table"
+  GROUP BY "column1";
+  ```
+  * `HAVING` statement, to filter by a comparison operator.
+  
+  ```SQL
+  SELECT "column1", SUM("column2") AS "summary"
+  FROM "table"
+  GROUP BY "column1"
+  HAVING "summary" > 100;
+  ```
+  
+  * `ROUND` function, to round values.
+  
+  ```SQL
+  SELECT "column1", ROUND(SUM("column2"), 2) AS "summary"
+  FROM "table"
+  GROUP BY "column1"
+  HAVING "summary" > 100;
+  ```
+  
+  * `PRAGMA TABLE_INFO()` statement, to return the type and other information for each column.
+  
+  ```SQL
+  PRAGMA TABLE_INFO("table");
+  ```
+  
+  * `CAST()` fuction, to change data type.
+  
+  ```SQL
+  SELECT CAST("column1" AS Float) / CAST("column2" AS Integer)
+  FROM "table";
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false
